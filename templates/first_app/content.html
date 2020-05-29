@@ -1,0 +1,309 @@
+{% extends 'first_app/haahaahaa.html' %}
+{% load static%}
+{% load bootstrap %}
+
+
+{% block search %}
+
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %}
+
+
+
+
+   <form  method="POST" action="{% url 'link:search' %}" >
+      {% csrf_token %}
+<div id="search" >
+
+<!-- <table style="width:100%;height:50px;"><tr> -->
+<!-- <table class="table table-sm" style="background-color:blue"> -->
+
+    <div class="styled" >
+        <select name="district" >
+          <option selected="selected" disabled>District</option>
+
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Rajshahi">Rajshahi</option>
+                  <option value="Khulna">Khulna</option>
+                  <option value="Mymensingh">Mymensingh</option>
+                  <option value="Sylhet">Sylhet</option>
+                  <option value="Barisal">Barisal</option>
+                  <option value="Chattagram">Chattagram</option>
+                  <option value="Rangpur">Rangpur</option>
+                  <option value="Jessore">Jessore</option>
+                  <option value="Tangail">Tangail</option>
+                  <option value="Jamalpur">Jamalpur</option>
+                  <option value="Kishorgonj">Kishorgonj</option>
+          </select>
+    </div>
+<div class="styled">
+
+          <select name="catagory">
+          <option selected="selected" disabled>Category:</option>
+                  <option value="Family">Family</option>
+                  <option value="Bachelor Mess">Bachelor Mess</option>
+                  <option value="Female Mess">Female Mess</option>
+                  <option value="Office">Office</option>
+                  <option value="Others">Others</option>
+          </select>
+
+  </div>
+
+  <button class="btn btn-primary" type="submit" name="ok" style=
+  "background-color: #FF5722;
+  width:200px;
+  height:33px;
+  float:right;
+  margin-right:150px;
+  margin-top: 7px;">
+  <i class="fa fa-search" aria-hidden="true"> Search</i></button>
+
+
+<!-- </tr></table> -->
+</div>
+
+</form>
+
+{% endblock %}
+
+{% block slide%}
+</br>
+<div class="slide">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:900px;height:550px;left:13%;top:10%;"> 
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" >
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{% static "images/Hatirjhil.jpg" %}" alt="First slide content" style="width:100%;height:530px;">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static "images/Chattragram.jpg" %}" alt="Second slide" style="width:100%;height:530px;" >
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static "images/Rupsa.jpg" %}" alt="Third slide" style="width:100%;height:530px;">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+<!-- <p>hellow world!!!!</br>Let's Chill out</p> -->
+</br>
+<h2 style="color: #00695C">Explore By Divissions<h1>
+
+<div class="row">
+  <div class="col-sm-4">
+   <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Dhaka.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Dhaka</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Dhaka" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Dhaka</button>
+    </form>
+
+  </div>
+
+</div>
+</div>
+  <div class="col-sm-4">
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Rajshahi.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Rajshahi</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Rajshahi" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Rajshahi</button>
+    </form>
+
+    </div>
+
+</div>
+</div>
+
+<div class="col-sm-4">
+   <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Mymensingh3.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Mymensingh</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Mymensingh" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Mymensingh</button>
+    </form>
+  </div>
+
+</div>
+</div>
+
+
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+   <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Chattragram.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chattragram</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Chattragram" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Chattragram</button>
+    </form>
+
+  </div>
+
+</div>
+</div>
+  <div class="col-sm-4">
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Khulna.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Khulna</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Khulna" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Khulna</button>
+    </form>
+
+  </div>
+
+</div>
+</div>
+
+<div class="col-sm-4">
+   <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Barisal.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Barisal</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Barisal" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Barisal</button>
+    </form>
+
+  </div>
+
+</div>
+</div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+   <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Rangpur.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Rangpur</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Rangpur" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Rangpur</button>
+    </form>
+
+  </div>
+
+</div>
+</div>
+  <div class="col-sm-4">
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+
+	<img class="card-img-top" src="{% static "images/Sylhet.jpg" %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Sylhet</h5>
+
+    <form  method="POST" action="{% url 'link:divissionadd' %}">
+      {% csrf_token %}
+
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "dist" value="Sylhet" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">Explore Ads In Sylhet</button>
+    </form>
+  </div>
+
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock %}

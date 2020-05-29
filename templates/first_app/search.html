@@ -1,0 +1,68 @@
+{% extends 'first_app/haahaahaa.html' %}
+{% load static %}
+{% load bootstrap %}
+
+
+
+{% block slide %}
+
+
+{% for ad in adds %}
+{% if ad.district == b %}
+{% if ad.category == c %}
+
+<ul class="nav justify-content-end" style=" border:3px solid #85C1E9;border-radius:10px; background-color:#e3e3e5;margin-bottom:10px;">
+
+  <li class="nav-item">
+    <img class="nav-link disabled" src={{ad.picture.url}} style="max-height:225px;width: 20rem; padding-top: 20%;" >
+  </li>
+
+  <li class="nav-item">
+  <div class="card-body" style="width:750px;"  >
+    <h2 class="card-title" style="color:#1E8449">{{ad.title}}</h2>
+    <!-- <h4 class="card-text" style="color:#566573">{{ad.description}}</h4> -->
+    <h4 class="card-text" style="color:#566573">Location:{{ad.address}}</h4>
+    <h3 class="text-monospace" style="color:#E67E22">Bed:{{ad.bed}}  Bath:{{ad.bath}}  kitchen:{{ad.kitchen}}</h3>
+    <h3 class="text-monospace" style="color:#1F618D">৳:{{ad.cost}} Per Month</h3>
+
+
+    <form  method="POST" action="{% url 'link:aiding' %}">
+      {% csrf_token %}
+      <!-- <input type="hidden" name="id" value="{{ad.post_id}}"> -->
+    <!-- <a href="{% url 'link:addetails' %}"> -->
+    <div style = "max-width:470px;">
+          <center>
+              <input type = "hidden" style = "margin-left:20%;" name = "id" value="{{ad.post_id}}" />
+          </center>
+    </div>
+      <button class="btn btn-primary" type="submit" name="ok">See Details</button>
+    </form>
+
+  </div>
+</li>
+
+</ul>
+
+{% endif %}
+{% endif%}
+
+
+{%endfor%}
+{% if not i %}
+<div id="id01" style="width: 90%;
+    height: 600px;
+    overflow: auto;
+    /* background-color: #e3e3e5; */
+    padding-top: 15%;
+		padding-right:20%;
+    margin-left: 70px;
+    color: green;
+		padding-left:35%">
+
+	  <h3>No Ads to show!!</h3>
+    <img  src="{% static "images/sorry.jpg" %}" alt="Card image cap">
+</div>
+{% endif %}
+
+
+{% endblock%}

@@ -1,0 +1,17 @@
+{% extends 'first_app/haahaahaa.html' %}
+{% load static %}
+
+{%block content%}
+<form  method="POST" action="{% url 'link:aiding' %}">
+  {% csrf_token %}
+  <!-- <input type="hidden" name="id" value="{{ad.post_id}}"> -->
+<!-- <a href="{% url 'link:addetails' %}"> -->
+<div style = "max-width:470px;">
+      <center>
+          <input type = "text" style = "margin-left:20%;" name = "id" />
+      </center>
+</div>
+  <button class="btn btn-primary" type="submit" name="ok">See Details :)</button>
+</form>
+
+{%endblock%}

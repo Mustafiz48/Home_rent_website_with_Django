@@ -1,0 +1,95 @@
+
+.navstyl{
+	background-color: #8ba6d3;
+
+
+}
+
+.slide{
+
+	height: 40%;
+/*	width: 100%;
+	/*left: 70%;*/
+
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #0099ff;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+
+
+/*for sidebar dropdown*/
+
+
+.dropdown-content{
+	display: none;
+	background-color:rgb(204, 205, 206);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	position: absolute;
+	min-width: 160px;
+	/*z-index: 1;*/
+
+}
+
+.dropdown-content a{
+	color: black;
+	display: block;
+	text-align: left;
+
+
+}
+
+
+.styled select {
+	 background: transparent;
+	 width: 150px;
+	 font-size: 16px;
+	 border: 1px solid #ccc;
+	 height: 34px;
+}
+
+.styled{
+	 margin: 50px;
+	 width: 120px;
+	 height: 34px;
+	 border: 1px solid #111;
+	 border-radius: 3px;
+	 overflow: hidden;
+	 background:#ddd;
+}

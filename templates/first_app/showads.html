@@ -1,0 +1,118 @@
+{% extends 'first_app/haahaahaa.html' %}
+{% load static %}
+{% load bootstrap %}
+
+
+{% block search %}
+
+
+
+   <form  method="POST" action="{% url 'link:search' %}" >
+      {% csrf_token %}
+<div id="search" >
+
+<!-- <table style="width:100%;height:50px;"><tr> -->
+<!-- <table class="table table-sm" style="background-color:blue"> -->
+
+    <div class="styled" >
+        <select name="district" >
+          <option selected="selected" disabled>District</option>
+
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Rajshahi">Rajshahi</option>
+                  <option value="Khulna">Khulna</option>
+                  <option value="Mymensingh">Mymensingh</option>
+                  <option value="Sylhet">Sylhet</option>
+                  <option value="Barisal">Barisal</option>
+                  <option value="Chattagram">Chattagram</option>
+                  <option value="Rangpur">Rangpur</option>
+                  <option value="Jessore">Jessore</option>
+                  <option value="Tangail">Tangail</option>
+                  <option value="Jamalpur">Jamalpur</option>
+                  <option value="Kishorgonj">Kishorgonj</option>
+          </select>
+    </div>
+<div class="styled">
+
+          <select name="catagory">
+          <option selected="selected" disabled>Category:</option>
+                  <option value="Family">Family</option>
+                  <option value="Bachelor Mess">Bachelor Mess</option>
+                  <option value="Female Mess">Female Mess</option>
+                  <option value="Office">Office</option>
+                  <option value="Others">Others</option>
+          </select>
+
+  </div>
+
+  <button class="btn btn-primary" type="submit" name="ok" style=
+  "background-color: #FF5722;
+  width:200px;
+  height:33px;
+  float:right;
+  margin-right:150px;
+  margin-top: 7px;">
+  <i class="fa fa-search" aria-hidden="true"> Search</i></button>
+
+
+<!-- </tr></table> -->
+</div>
+
+</form>
+
+{% endblock %}
+
+
+
+{% block slide %}
+
+<!-- <div id="id01" > -->
+<!-- <div> -->
+    {% if ads %}
+
+    <!-- <div > -->
+      {% for ad in ads %}
+      <!-- {% with a="{{ad.post_id}}" %}
+      {%endwith%} -->
+  <ul class="nav justify-content-end" style=" border:3px solid #455A64;border-radius:10px; background-color:#D0D3D4;margin-bottom:10px;">
+
+    <li class="nav-item">
+      <img class="nav-link disabled" src={{ad.picture.url}} style="max-height:225px;width: 20rem; padding-top: 20%;" >
+    </li>
+
+    <li class="nav-item">
+    <div class="card-body" style="width:750px;"  >
+      <h2 class="card-title" style="color:#0E6655;font-size:28px;">{{ad.title}}</h2>
+      <!-- <h4 class="card-text" style="color:#566573">{{ad.description}}</h4> -->
+      <h4 class="card-text" style="color:black;font-size:25px;">Location:{{ad.address}}</h4>
+      <h3 class="text-monospace" style="color:black;font-size:25px;">Bed:{{ad.bed}}  Bath:{{ad.bath}}  kitchen:{{ad.kitchen}}</h3>
+      <h3 class="text-monospace" style="color:black;font-size:25px;">৳:{{ad.cost}} Per Month</h3>
+
+
+      <form  method="POST" action="{% url 'link:aiding' %}">
+        {% csrf_token %}
+        <!-- <input type="hidden" name="id" value="{{ad.post_id}}"> -->
+      <!-- <a href="{% url 'link:addetails' %}"> -->
+      <div style = "max-width:470px;">
+            <center>
+                <input type = "hidden" style = "margin-left:20%;" name = "id" value="{{ad.post_id}}" />
+            </center>
+      </div>
+        <button class="btn btn-primary" type="submit" name="ok" style="background-color:#3498DB">See Details</button>
+      </form>
+
+        </div>
+  </li>
+
+</ul>
+
+{% endfor %}
+<!-- </div> -->
+
+
+
+
+
+  {% endif %}
+<!-- </div> -->
+{% endblock %}
